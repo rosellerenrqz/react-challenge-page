@@ -7,7 +7,7 @@ const WelcomePage = () => {
   return (
     <React.Fragment>
       <header className="relative h-[100vh]">
-        <div className="absolute inset-1/4 z-40 max-w-2xl text-center text-white lg:left-[35%]">
+        <div className="absolute inset-1/4 z-10 max-w-2xl text-center text-white lg:left-[35%]">
           <h1 className="mb-3 py-5 text-3xl md:text-6xl lg:mb-5">
             Ready for a Challenge?
           </h1>
@@ -69,8 +69,9 @@ const WelcomePage = () => {
             Join Thousands Embracing The Challenge
           </h1>
           <p className="text-sm text-white md:text-base">
-            “I never realized what I was capable of until I set my first
-            challenge here. It's been a transformative experience!” - Alex P.
+            “Join the ranks of those who boldly embrace challenges, for in their
+            pursuit, they discover the strength and resilience that transform
+            dreams into reality.”
           </p>
         </section>
       </main>
