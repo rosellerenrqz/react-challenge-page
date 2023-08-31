@@ -11,6 +11,7 @@ const Header = () => {
   const startNewChallengeHandler = () => {
     setCreatingNewChallenge(true);
   };
+
   return (
     <React.Fragment>
       {creatingNewChallenge && (
