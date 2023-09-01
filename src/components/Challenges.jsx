@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+
 import { ChallengeContext } from "../store/challenge-context";
 import { ChallengeTab } from "../components/ChallengeTab";
 import ChallengeList from "../components/ChallengeList";
@@ -32,12 +33,10 @@ const Challenges = () => {
     failed: challenges.filter((challenge) => challenge.status === "failed"),
   };
 
-  // console.log(filteredChanges, "fc");
-
   const displayedChallenges = filteredChanges[selectedType];
 
   return (
-    <div className="mx-auto w-[35rem] rounded-md bg-gray-700 py-5">
+    <div className="mx-auto w-[35rem] rounded-md bg-slate-700 py-5">
       <ChallengeTab
         challenges={filteredChanges}
         onSelectType={handleSelectType}
@@ -57,7 +56,9 @@ const Challenges = () => {
         )}
 
         {displayedChallenges.length === 0 && (
-          <p className="mt-10 text-center text-white">No challenges found.</p>
+          <p className="mt-10 text-center text-lg text-white">
+            No challenges found.
+          </p>
         )}
       </ChallengeTab>
     </div>

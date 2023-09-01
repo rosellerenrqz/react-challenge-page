@@ -9,6 +9,8 @@ const NewChallenge = ({ onDone }) => {
 
   const { addChallengeHandler } = useContext(ChallengeContext);
 
+  console.log(addChallengeHandler, "testsdas");
+
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -18,8 +20,6 @@ const NewChallenge = ({ onDone }) => {
       deadline: deadline.current.value,
     };
 
-    // console.log(challenge, "challenge");
-
     if (
       challenge.title.trim() === "" ||
       challenge.description.trim() === "" ||
@@ -28,8 +28,9 @@ const NewChallenge = ({ onDone }) => {
       return;
     }
 
+    // console.log(addChallengeHandler(challenge), "handler");
+
     onDone();
-    console.log(addChallengeHandler(challenge));
     addChallengeHandler(challenge);
   };
 
@@ -46,6 +47,7 @@ const NewChallenge = ({ onDone }) => {
             id="title"
             placeholder="Title"
             ref={title}
+            required
             className="block w-full rounded-md border p-1"
           />
         </p>
@@ -59,6 +61,7 @@ const NewChallenge = ({ onDone }) => {
             id="description"
             placeholder="Description"
             ref={description}
+            required
             className="block w-full rounded-md border p-1"
           ></textarea>
         </p>
@@ -72,6 +75,7 @@ const NewChallenge = ({ onDone }) => {
             name="deadline"
             id="deadline"
             ref={deadline}
+            required
             className="block w-full rounded-md border p-1"
           />
         </p>

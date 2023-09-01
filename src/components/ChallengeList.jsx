@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { ChallengeContext } from "../store/challenge-context";
 
 const ChallengeList = ({ challenge, onViewDetails, isExpanded }) => {
@@ -23,22 +23,26 @@ const ChallengeList = ({ challenge, onViewDetails, isExpanded }) => {
 
   return (
     <li className="mw-[90%] my-8 flex w-full list-none flex-col gap-4 p-0">
-      <article className="w-full">
+      <article className="w-full px-5">
         <header className="flex items-start gap-4">
           <div className="w-full">
-            <h2 className="mt-0 text-xl text-gray-500">{challenge.title}</h2>
-            <p className="mt-0 text-xs">Complete until {formattedDate}</p>
+            <h2 className="my-2 mt-0 text-xl text-gray-300">
+              {challenge.title}
+            </h2>
+            <p className="mt-0 text-xs text-gray-100">
+              Complete until {formattedDate}
+            </p>
 
-            <p className="flex content-end gap-4">
+            <p className="flex justify-end gap-4">
               <button
                 onClick={cancelHandler}
-                className="border-none bg-blue-500 bg-transparent p-0 text-inherit"
+                className="border-none bg-transparent p-0 text-red-500 hover:text-red-400 active:text-red-300"
               >
                 Mark as failed
               </button>
               <button
                 onClick={completeHandler}
-                className="border-none bg-blue-500 bg-transparent p-0 text-inherit"
+                className="border-none bg-transparent p-0 text-blue-500 hover:text-blue-400 active:text-blue-300"
               >
                 Mark as completed
               </button>
@@ -49,7 +53,7 @@ const ChallengeList = ({ challenge, onViewDetails, isExpanded }) => {
           <p>
             <button
               onClick={onViewDetails}
-              className="border-none bg-blue-500 bg-transparent p-0 text-inherit"
+              className="border-none bg-transparent p-0 text-blue-500"
             >
               View Details{" "}
               <span className="ml-1 inline-block text-sm">&#9650;</span>
@@ -58,7 +62,7 @@ const ChallengeList = ({ challenge, onViewDetails, isExpanded }) => {
 
           {isExpanded && (
             <div>
-              <p className="m-0">{challenge.description}</p>
+              <p className="m-0 text-gray-200">{challenge.description}</p>
             </div>
           )}
         </div>

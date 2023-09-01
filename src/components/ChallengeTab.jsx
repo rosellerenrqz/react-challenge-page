@@ -1,4 +1,3 @@
-import React from "react";
 import Badge from "./Badge";
 
 const Tab = ({ isSelected, onSelect, badgeCaption, children }) => {
@@ -27,7 +26,7 @@ export const ChallengeTab = ({
       <menu className="flex justify-start px-5 sm:justify-between md:justify-between">
         <Tab
           isSelected={selectedType === "active"}
-          onSelect={() => onSelectType("acitve")}
+          onSelect={() => onSelectType("active")}
           badgeCaption={challenges.active.length}
         >
           Active

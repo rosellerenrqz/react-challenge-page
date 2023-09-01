@@ -11,7 +11,7 @@ export const ChallengeContextProvider = ({ children }) => {
 
   const addChallengeHandler = (challenge) => {
     setChallenges((prevChallenges) => [
-      { ...challenge, id: Math.random().toString() },
+      { ...challenge, id: Math.random().toString(), status: "active" },
       ...prevChallenges,
     ]);
   };
