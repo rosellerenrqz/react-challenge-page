@@ -56,7 +56,13 @@ const ChallengeList = ({ challenge, onViewDetails, isExpanded }) => {
               className="border-none bg-transparent p-0 text-blue-500"
             >
               View Details{" "}
-              <span className="ml-1 inline-block text-sm">&#9650;</span>
+              <span
+                className={`ml-1 inline-block text-sm ${
+                  isExpanded ? "rotate-180 duration-300" : "duration-300"
+                }`}
+              >
+                &#9650;
+              </span>
             </button>
           </p>
 
