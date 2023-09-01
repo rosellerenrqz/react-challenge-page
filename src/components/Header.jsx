@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import NewChallenge from "./NewChallenge";
 
 const Header = () => {
@@ -14,20 +15,24 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      {creatingNewChallenge && (
-        <NewChallenge onDone={doneCreatingChallengeHandler} />
-      )}
+      <AnimatePresence>
+        {creatingNewChallenge && (
+          <NewChallenge onDone={doneCreatingChallengeHandler} />
+        )}
+      </AnimatePresence>
 
       <header className="mx-auto flex w-[20rem] justify-between py-20 text-white md:w-[35rem] lg:w-[50rem]">
         <h1 className="text-xl font-bold text-blue-400 md:text-2xl">
           Your Challenges
         </h1>
-        <button
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring" }}
           onClick={startNewChallengeHandler}
           className="rounded-md bg-blue-400 px-3 py-2 text-sm font-medium hover:bg-blue-300"
         >
           Add Challenge
-        </button>
+        </motion.button>
       </header>
     </React.Fragment>
   );

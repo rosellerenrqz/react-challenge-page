@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useContext } from "react";
 import { ChallengeContext } from "../store/challenge-context";
 
@@ -56,13 +57,12 @@ const ChallengeList = ({ challenge, onViewDetails, isExpanded }) => {
               className="border-none bg-transparent p-0 text-blue-500"
             >
               View Details{" "}
-              <span
-                className={`ml-1 inline-block text-sm ${
-                  isExpanded ? "rotate-180 duration-300" : "duration-300"
-                }`}
+              <motion.span
+                animate={{ rotate: isExpanded ? 180 : 0 }}
+                className="ml-1 inline-block text-sm"
               >
                 &#9650;
-              </span>
+              </motion.span>
             </button>
           </p>
 
