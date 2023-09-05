@@ -1,8 +1,14 @@
+import { motion } from "framer-motion";
+
 const Badge = ({ caption }) => {
   return (
-    <div className="ml-2 rounded-md bg-blue-400 px-2 text-sm text-white">
+    <motion.div
+      animate={{ scale: [1, 1.2, 1] }}
+      transition={{ duration: 0.2 }}
+      className="ml-2 rounded-md bg-blue-400 px-2 text-sm text-white"
+    >
       {caption}
-    </div>
+    </motion.div>
   );
 };
 

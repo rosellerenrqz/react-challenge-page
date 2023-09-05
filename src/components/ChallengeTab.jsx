@@ -1,4 +1,5 @@
 import Badge from "./Badge";
+import { motion } from "framer-motion";
 
 const Tab = ({ isSelected, onSelect, badgeCaption, children }) => {
   return (
@@ -8,9 +9,15 @@ const Tab = ({ isSelected, onSelect, badgeCaption, children }) => {
         onClick={onSelect}
       >
         {children}
-        <Badge caption={badgeCaption}></Badge>
+        {/*adding key to retrigger the badge animation*/}
+        <Badge key={badgeCaption} caption={badgeCaption}></Badge>
       </button>
-      {isSelected && <div className="mt-2 border border-blue-500"></div>}
+      {isSelected && (
+        <motion.div
+          layoutId="tab-indicator"
+          className="mt-2 border border-blue-500"
+        ></motion.div>
+      )}
     </li>
   );
 };
