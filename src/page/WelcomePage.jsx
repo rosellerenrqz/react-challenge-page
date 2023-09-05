@@ -1,13 +1,32 @@
 import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import CityImg from "../assets/city.jpg";
 
 const WelcomePage = () => {
+  const { scrollY } = useScroll();
+
+  const yCity = useTransform(scrollY, [0, 200], [0, -300]);
+  const scaleText = useTransform(scrollY, [0, 300], [1, 1.3]);
+  const yText = useTransform(scrollY, [0, 200, 300, 500], [0, 50, 150, 300]);
+
+  //1st value number of pixels to be scrolled.
+  //2nd value array of breakpoints pixels
+  //3rd value array of breakpoints and between those breakpoints that should transformed, opacity after
+  const opacityCity = useTransform(
+    scrollY,
+    [0, 200, 300, 900],
+    [1, 0.5, 0.3, 0],
+  );
+
   return (
     <React.Fragment>
       <header className="relative h-[100vh]">
-        <div className="absolute inset-1/4 z-10 max-w-2xl text-center text-white lg:left-[35%]">
+        <motion.div
+          style={{ scale: scaleText, y: yText }}
+          className="absolute inset-1/4 z-10 max-w-2xl text-center text-white lg:left-[35%]"
+        >
           <h1 className="mb-3 py-5 text-3xl md:text-6xl lg:mb-5">
             Ready for a Challenge?
           </h1>
@@ -17,8 +36,9 @@ const WelcomePage = () => {
           >
             Get Started
           </Link>
-        </div>
-        <img
+        </motion.div>
+        <motion.img
+          style={{ opacity: opacityCity, y: yCity }}
           src={CityImg}
           alt="A city skyline touched by sunlight"
           id="city-image"

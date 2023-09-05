@@ -37,7 +37,7 @@ const Challenges = () => {
   const displayedChallenges = filteredChanges[selectedType];
 
   return (
-    <div className="mx-auto w-[35rem] rounded-md bg-slate-700 py-5">
+    <div className="mx-auto mb-20 w-[35rem] rounded-md bg-slate-700 py-5">
       <ChallengeTab
         challenges={filteredChanges}
         onSelectType={handleSelectType}
