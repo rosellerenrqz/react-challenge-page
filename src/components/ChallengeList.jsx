@@ -40,16 +40,16 @@ const ChallengeList = ({ challenge, onViewDetails, isExpanded }) => {
 
             <p className="flex justify-end gap-4">
               <motion.button
-                // whileHover={{ scale: 1.1 }}
-                // transition={{ type: "spring", duration: 0.1 }}
+                whileHover={{ scale: 1.03 }}
+                transition={{ type: "spring", duration: 0.1 }}
                 onClick={cancelHandler}
                 className="border-none bg-transparent p-0 text-red-500 hover:text-red-400 active:text-red-300"
               >
                 Mark as failed
               </motion.button>
               <motion.button
-                // whileHover={{ scale: 1.1 }}
-                // transition={{ type: "spring", duration: 0.1 }}
+                whileHover={{ scale: 1.03 }}
+                transition={{ type: "spring", duration: 0.1 }}
                 onClick={completeHandler}
                 className="border-none bg-transparent p-0 text-blue-500 hover:text-blue-400 active:text-blue-300"
               >
@@ -81,7 +81,7 @@ const ChallengeList = ({ challenge, onViewDetails, isExpanded }) => {
                 animate={{ opacity: 1, maxHeight: "100px" }}
                 exit={{ opacity: 0, maxHeight: 0 }}
                 transition={{ duration: 0.3 }}
-                className="m-0 text-gray-200"
+                className="m-0 overflow-hidden whitespace-normal text-gray-200"
               >
                 {challenge.description}
               </motion.div>
