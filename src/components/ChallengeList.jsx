@@ -35,18 +35,22 @@ const ChallengeList = ({ challenge, onViewDetails, isExpanded }) => {
             </p>
 
             <p className="flex justify-end gap-4">
-              <button
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", duration: 0.1 }}
                 onClick={cancelHandler}
                 className="border-none bg-transparent p-0 text-red-500 hover:text-red-400 active:text-red-300"
               >
                 Mark as failed
-              </button>
-              <button
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", duration: 0.1 }}
                 onClick={completeHandler}
                 className="border-none bg-transparent p-0 text-blue-500 hover:text-blue-400 active:text-blue-300"
               >
                 Mark as completed
-              </button>
+              </motion.button>
             </p>
           </div>
         </header>

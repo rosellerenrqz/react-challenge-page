@@ -27,7 +27,7 @@ const Header = () => {
         </h1>
         <motion.button
           whileHover={{ scale: 1.1 }}
-          transition={{ type: "spring" }}
+          transition={{ type: "spring", duration: 0.3 }}
           onClick={startNewChallengeHandler}
           className="rounded-md bg-blue-400 px-3 py-2 text-sm font-medium hover:bg-blue-300"
         >
