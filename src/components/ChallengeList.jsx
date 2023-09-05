@@ -23,7 +23,11 @@ const ChallengeList = ({ challenge, onViewDetails, isExpanded }) => {
   };
 
   return (
-    <li className="mw-[90%] my-8 flex w-full list-none flex-col gap-4 p-0">
+    <motion.li
+      layout
+      exit={{ y: -30, opacity: 0 }} //to animate the under list once the upper list is marked.
+      className="mw-[90%] my-8 flex w-full list-none flex-col gap-4 p-0"
+    >
       <article className="w-full px-5">
         <header className="flex items-start gap-4">
           <div className="w-full">
@@ -77,7 +81,7 @@ const ChallengeList = ({ challenge, onViewDetails, isExpanded }) => {
           )}
         </div>
       </article>
-    </li>
+    </motion.li>
   );
 };
 

@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { ChallengeContext } from "../store/challenge-context";
 import { ChallengeTab } from "../components/ChallengeTab";
 import ChallengeList from "../components/ChallengeList";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Challenges = () => {
   const { challenges } = useContext(ChallengeContext);
@@ -42,24 +43,35 @@ const Challenges = () => {
         onSelectType={handleSelectType}
         selectedType={selectedType}
       >
-        {displayedChallenges.length > 0 && (
-          <ol>
-            {displayedChallenges.map((challenge) => (
-              <ChallengeList
-                key={challenge.id}
-                challenge={challenge}
-                onViewDetails={() => handleViewDetails(challenge.id)}
-                isExpanded={expanded === challenge.id}
-              />
-            ))}
-          </ol>
-        )}
+        <AnimatePresence mode="wait">
+          {displayedChallenges.length > 0 && (
+            <motion.ol exit={{ y: -30, oapcity: 0 }} key="list">
+              <AnimatePresence>
+                {displayedChallenges.map((challenge) => (
+                  <ChallengeList
+                    // layout //to animate once a new challenge is being added
+                    key={challenge.id}
+                    challenge={challenge}
+                    onViewDetails={() => handleViewDetails(challenge.id)}
+                    isExpanded={expanded === challenge.id}
+                  />
+                ))}
+              </AnimatePresence>
+            </motion.ol>
+          )}
 
-        {displayedChallenges.length === 0 && (
-          <p className="mt-10 text-center text-lg text-white">
-            No challenges found.
-          </p>
-        )}
+          {displayedChallenges.length === 0 && (
+            <motion.p
+              key="fallback"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="mt-10 text-center text-lg text-white"
+            >
+              No challenges found.
+            </motion.p>
+          )}
+        </AnimatePresence>
       </ChallengeTab>
     </div>
   );
