@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import WelcomePage from "./page/WelcomePage.jsx";
 import ChallengePage from "./page/ChallengePage.jsx";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const router = createBrowserRouter([
   { path: "/", element: <WelcomePage /> },
@@ -8,7 +9,12 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <SpeedInsights />
+    </>
+  );
 };
 
 export default App;

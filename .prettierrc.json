@@ -1,6 +1,0 @@
-{
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "purge": false,
-  "theme": {},
-  "variants": {}
-}
